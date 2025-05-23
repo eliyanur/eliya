@@ -11,60 +11,60 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Orbitron', sans-serif;
+  body {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  @keyframes borderGlow {
+    0% {
+      background-position: 0% 50%;
     }
-   /* Animasi border hijau neon dan putih */
-@keyframes borderGlow {
-  0% {
-    background-position: 0% 50%;
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
-  50% {
-    background-position: 100% 50%;
+
+  .skill-border {
+    position: relative;
+    padding: 3px;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #ffffff, #39ff14, #ffffff);
+    background-size: 300% 300%;
+    animation: borderGlow 5s ease infinite;
+    width: fit-content;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  100% {
-    background-position: 0% 50%;
+
+  .skill-border:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #39ff14;
   }
-}
 
-.skill-border {
-  position: relative;
-  padding: 3px;
-  border-radius: 16px;
-  background: linear-gradient(90deg, #ffffff, #39ff14, #ffffff);
-  background-size: 300% 300%;
-  animation: borderGlow 5s ease infinite;
-  width: fit-content;
-  margin: auto;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  .skill-card {
+    background-color: #0f172a;
+    color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    width: 150px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
 
-.skill-border:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px #39ff14;
-}
+  .skill-card img {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+  }
+</style>
 
-.skill-card {
-  background-color: #0f172a;
-  color: white;
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  width: 150px;
-  height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.skill-card img {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto;
-}
-
-  </style>
 </head>
 <body class="bg-gray-900 text-green-400 min-h-screen">
 
@@ -177,71 +177,55 @@
   </div>
 </section>
 
-  <!-- Skills -->
-<section id="skills" class="bg-gray-950 py-24 px-6 lg:px-20">
-  <div class="max-w-7xl mx-auto text-center">
-    <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-16" data-aos="fade-up">
+  <section id="skills" class="bg-gray-950 py-24 px-6 lg:px-20">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-4xl sm:text-5xl font-extrabold text-center text-white mb-12">
       My <span class="bg-gradient-to-r from-green-400 to-white bg-clip-text text-transparent">Skills</span>
     </h2>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-      
-      <!-- Skill Item HTML5 -->
-      <div class="skill-border" data-aos="zoom-in" data-aos-delay="100">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-center items-center">
+      <div class="skill-border">
         <div class="skill-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-          <p>HTML5</p>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+          <span class="text-lg font-semibold">HTML</span>
         </div>
       </div>
-
-      <!-- Skill Item CSS3 -->
-      <div class="skill-border" data-aos="zoom-in" data-aos-delay="200">
+      <div class="skill-border">
         <div class="skill-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-          <p>CSS3</p>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+          <span class="text-lg font-semibold">CSS</span>
         </div>
       </div>
-
-      <!-- Skill Item Bootstrap -->
-      <div class="skill-border" data-aos="zoom-in" data-aos-delay="300">
+      <div class="skill-border">
         <div class="skill-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap">
-          <p>Bootstrap</p>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="JavaScript" />
+          <span class="text-lg font-semibold">JavaScript</span>
         </div>
       </div>
-
-      <!-- Skill Item Tailwind -->
-      <div class="skill-border" data-aos="zoom-in" data-aos-delay="400">
+      <div class="skill-border">
         <div class="skill-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS">
-          <p>Tailwind CSS</p>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="React" />
+          <span class="text-lg font-semibold">React</span>
         </div>
       </div>
-
-      <!-- Skill Item JavaScript -->
-      <div class="skill-border" data-aos="zoom-in" data-aos-delay="500">
+      <div class="skill-border">
         <div class="skill-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-          <p>JavaScript</p>
+          <img src="asset/tailwindcss.svg" alt="Tailwind" />
+          <span class="text-lg font-semibold">Tailwind</span>
         </div>
       </div>
-
-      <!-- Skill Item PHP -->
-      <div class="skill-border" data-aos="zoom-in" data-aos-delay="600">
+      <div class="skill-border">
         <div class="skill-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP">
-          <p>PHP</p>
+          <img src="asset/github.svg" alt="GitHub" />
+          <span class="text-lg font-semibold">GitHub</span>
         </div>
       </div>
-
-      <!-- Skill Item Laravel -->
-      <div class="skill-border" data-aos="zoom-in" data-aos-delay="700">
+      <div class="skill-border">
         <div class="skill-card">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel">
-          <p>Laravel</p>
+          <img src="asset/figma.svg" alt="Figma" />
+          <span class="text-lg font-semibold">Figma</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
