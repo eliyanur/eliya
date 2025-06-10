@@ -6,9 +6,16 @@
   <link href="src/output.css" rel="stylesheet">
   <title>Portofolio Eliya</title>
   <meta name="google-site-verification" content="_LZDaMF0SFEe-LdddNHcUDAdLN4HC0LA22LTxKFUaoE" />
+  <meta name="description"
+        content="Website portfolio Eliyanur. seorang software engineer kreatif yang mengembangkan website interaktif dan responsif untuk transformasi digital.">
+    <meta name="keywords" content="Eliyanur, eliya">
+    <meta name="author" content="Eliyall">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Tambahkan di akhir sebelum </body> -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
 
 <!-- Style Skill Card -->
 <style>
@@ -175,7 +182,7 @@
   </style>
 </head>
 <body class="bg-gray-900 text-green-400 min-h-screen">
-<audio id="anyeong" src="asset/anyeong.mp3" autoplay></audio>
+<div id="tsparticles" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0;"></div>
 <!-- Navbar -->
 <nav class="flex items-center justify-between px-6 py-4 bg-gray-800 shadow-md fixed top-0 left-0 right-0 z-50">
   <!-- Logo -->
@@ -237,7 +244,7 @@
   <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-16">
     <!-- Image -->
     <div class="lg:w-1/2 flex justify-center fade-in-on-scroll">
-      <div class="w-72 h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden border-4 border-green-500 shadow-xl shadow-green-400/30 transition-transform duration-300 hover:scale-105">
+      <div class="hexagon w-72 h-72 lg:w-80 lg:h-80 rounded-3xl overflow-hidden border-4 border-green-500 shadow-xl shadow-green-400/30 transition-transform duration-300 hover:scale-105">
         <img src="asset/Profill (2).png" alt="Eliya's Photo" class="w-full h-full object-cover object-top" />
       </div>
     </div>
@@ -329,8 +336,7 @@
 </section>
 
 <!-- Project Section -->
-<section id="projects" class="bg-gray-950 py-20 px-6 lg:px-20" 
->
+<section id="projects" class="bg-gray-950 py-20 px-6 lg:px-20">
   <div class="max-w-6xl mx-auto text-center">
     <h2 class="text-4xl font-extrabold text-white mb-16 tracking-wide">
       My <span class="bg-gradient-to-r from-green-400 to-white bg-clip-text text-transparent">Projects</span>
@@ -418,10 +424,10 @@
 
     <!-- Toggle Button -->
     <button id="toggleProjectsBtn"
-      class="mt-10 flex items-center justify-center mx-auto text-green-400 hover:text-green-200 font-medium transition-colors duration-300">
-      <span class="mr-2">Show More</span>
-      <span id="toggleIcon">▼</span>
-    </button>
+  class="relative z-10 mt-10 flex items-center justify-center mx-auto text-green-400 hover:text-green-200 font-medium transition-colors duration-300">
+  <span class="mr-2">Show More</span>
+  <span id="toggleIcon">▼</span>
+</button>
   </div>
 </section>
 
@@ -507,7 +513,7 @@
 </div>
 </section>
 <!-- Contact -->
-<section id="kontak" class="bg-gradient-to-br from-gray-950 via-gray-950 to-black py-20 px-6 lg:px-20 fade-up-on-scroll">
+<section id="kontak" class="bg-gradient-to-br fade-up-on-scroll pb-20">
   <div class="max-w-lg mx-auto bg-white/10 backdrop-blur-md rounded-3xl p-10 shadow-lg">
     <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-12 tracking-tight text-center">
       Contact <span class="bg-gradient-to-r from-green-400 to-white bg-clip-text text-transparent">Me</span>
@@ -558,16 +564,14 @@
         Send Message
       </button>
     </form>
-    <audio id="yeaySound" src="asset/yeay.mp3"></audio>
   </div>
 </section>
 
 
 
 <!-- Footer -->
-<footer class="bg-gradient-to-br from-gray-900 via-[#0c1022] to-gray-900 text-white pt-16 pb-10 px-6 border-t border-gray-800">
+<footer class="relative z-20 mt-20 bg-gradient-to-br from-gray-900 via-[#0c1022] to-gray-900 text-white pt-16 pb-10 px-6 border-t border-gray-800">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-
     <!-- Social Media -->
     <div>
       <h2 class="text-2xl font-bold text-green-400 mb-6 tracking-wide">Follow Me</h2>
@@ -631,23 +635,23 @@
       });
     });
   });
-   const toggleBtn = document.getElementById('toggleProjectsBtn');
-  const toggleText = toggleBtn.querySelector('span');
+ 
+  const toggleBtn = document.getElementById('toggleProjectsBtn');
+  const hiddenProjects = document.querySelectorAll('.project-card.hidden');
   const toggleIcon = document.getElementById('toggleIcon');
-  const hiddenCards = document.querySelectorAll('.project-card.hidden');
-
   let isExpanded = false;
 
   toggleBtn.addEventListener('click', () => {
-    isExpanded = !isExpanded;
-
-    hiddenCards.forEach(card => {
-      card.classList.toggle('hidden');
+    hiddenProjects.forEach(project => {
+      project.classList.toggle('hidden');
     });
 
-    toggleText.textContent = isExpanded ? 'Show Less' : 'Show More';
+    isExpanded = !isExpanded;
+    toggleBtn.querySelector('span').textContent = isExpanded ? 'Show Less' : 'Show More';
     toggleIcon.textContent = isExpanded ? '▲' : '▼';
   });
+
+
 const form = document.getElementById("contactForm");
 
   form.addEventListener("submit", async function (e) {
@@ -719,29 +723,36 @@ const form = document.getElementById("contactForm");
       observer.observe(el);
     });
   });
- 
-  //sound
-  document.addEventListener("DOMContentLoaded", function () {
-    const audio = document.getElementById("anyeong");
-
-    function playSoundOnce() {
-      audio.play().catch((err) => {
-        console.log("Autoplay gagal, tunggu interaksi user:", err);
-      });
-
-      // Hapus listener setelah sekali main
-      document.removeEventListener("click", playSoundOnce);
-      document.removeEventListener("keydown", playSoundOnce);
-      document.removeEventListener("scroll", playSoundOnce);
-    }
-
-    // Trigger main suara setelah interaksi pertama
-    document.addEventListener("click", playSoundOnce);
-    document.addEventListener("keydown", playSoundOnce);
-    document.addEventListener("scroll", playSoundOnce);
-  });
 
 </script>
+<script>
+ tsParticles.load("tsparticles", {
+  background: {
+    color: "#0f172a",
+  },
+  particles: {
+    number: { value: 50 },
+    color: { value: "#00ffcc" },
+    shape: { type: "circle" },
+    opacity: {
+      value: 0.3,
+      random: true,
+    },
+    size: {
+      value: { min: 3, max: 7 },
+      random: true,
+    },
+    move: {
+      enable: true,
+      direction: "top",
+      speed: 2,
+      outModes: { default: "out" }
+    },
+  },
+  fullScreen: { enable: false },
+});
+
+ </script>
 
 </body>
 </html>
